@@ -1,0 +1,295 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import bg1 from "../assets/bg_1.jpeg";
+import bg2 from "../assets/bg_2.jpeg";
+import cassete from "../assets/cassete.webp";
+import minwallclock from "../assets/minwallclock.webp";
+import portfolioagency from "../assets/portfolioagency.webp";
+import handwriting from "../assets/handwriting.webp";
+import keyboard from "../assets/keyboard.webp";
+
+import spiral from "../assets/spiral.webp";
+import jamie from "../assets/jamie.webp";
+
+function Work() {
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
+
+  const backgrounds = [bg1, bg2];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 4000);
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [backgrounds.length]);
+
+  return (
+    <div>
+
+    
+      <div
+        style={{
+          backgroundImage: `url(${backgrounds[backgroundIndex]})`,
+          backgroundSize: "auto 160%", // Image drops from the bottom
+          backgroundPosition: "center ",
+          backgroundRepeat: "no-repeat", // Adjust to start from the bottom center
+          width: "100%",
+          height: "100vh",
+          transition: "background-image 1s ease-in-out",
+        }}
+        className="flex justify-center items-center relative"
+      >
+        {/* Logo and Navigation Links */}
+          <div className="absolute top-4 left-4  w-full flex justify-between items-center px-44">
+              <div className="text-white text-2xl font-bold">
+              <h1>Avo</h1>
+              </div>
+              <nav className="text-white text-lg space-x-6">
+                  {/* Use Link component for navigation */}
+                  <Link to="/" className="hover:text-gray-300">Home</Link>
+                  <Link to="/about" className="hover:text-gray-300">About</Link>
+                  <Link to="/work" className="hover:text-gray-300">Work</Link>
+                  <Link to="/blog" className="hover:text-gray-300">Blog</Link>
+                  <Link to="/contact" className="hover:text-gray-300">Contact</Link>
+              </nav>
+          </div>
+
+        {/* Main Content */}
+        <div className="flex flex-col items-start absolute left-64">
+          <div className="flex flex-col text-white text-4xl font-bold  ">
+              <div className="text-gray-600 text-sm">
+                  <a href="/" className="hover:text-blue-500">Home</a>
+                  <span className="mx-2">&gt;</span>
+                  <span>Work</span>
+              </div>
+              <h1 className="font-bold"> WORK</h1>
+
+              
+          </div>
+        </div>
+
+        
+      </div>
+      {/* MAIN DIV END */}
+        {/*------------------------------------------- third portion started------------------------------ */}
+      <div className="flex flex-col justify-center items-center pt-10 pb-10">
+
+            <h1 className="text-4xl font-bold pt-48">OUR WORKS</h1>
+            {/* work part 1 */}
+            <div className="flex flex-row items-center pt-10"> 
+                <img src={cassete} alt="cassete" className="w-full h-96 mb-2" />
+                <div className="flex flex-col items-start ml-44 ">
+                    <p className="font-roboto"> Web Design</p>
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+            </div>
+
+            {/* work part 2 */}
+            <div className="flex flex-row items-center pt-10"> 
+                
+                <div className="flex flex-col items-start text-right ml-44 ">
+                    <div className="flex flex-col">
+                      <p className="font-roboto ml-20"> Web Design</p>
+                    </div>
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+                <img src={minwallclock} alt="minwallclock" className="w-full h-96 mb-2 ml-36" />
+            </div>
+            {/* work part 3 */}
+            <div className="flex flex-row items-center pt-10"> 
+                <img src={portfolioagency} alt="portfolioagency" className="w-full h-96 mb-2" />
+                <div className="flex flex-col items-start ml-44 ">
+                    <p className="font-roboto"> Web Design</p>
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+            </div>
+            {/* work part 4*/}
+            <div className="flex flex-row items-center pt-10"> 
+                
+                <div className="flex flex-col items-start text-right ml-44 ">
+                    <div className="flex flex-col">
+                      <p className="font-roboto ml-20"> Web Design</p>
+                    </div>
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+                <img src={handwriting} alt="handwriting" className="w-full h-96 mb-2 ml-36" />
+            </div>
+            {/* work part 5*/}
+            <div className="flex flex-row items-center pt-10"> 
+                <img src={keyboard} alt="keyboard" className="w-full h-96 mb-2" />
+                <div className="flex flex-col items-start ml-44 ">
+                    <p className="font-roboto"> Web Design</p>
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+            </div>
+            {/* work part 6*/}
+            <div className="flex flex-row items-center pt-10"> 
+                
+                <div className="flex flex-col items-start text-right ml-44 ">
+                    <div className="flex flex-col">
+                      <p className="font-roboto ml-20"> Web Design</p>
+                    </div>
+                    
+                    <h1 className="font-bold text-3xl pt-3">CASSETE TAPE</h1>
+                    <p className="font-normal text-gray-400">Far far away, behind the word mountains, far far<br /> from the countries Vokalia and Consonantia,
+                    </p>
+                    <div className="flex flex-row pt-6">
+                        <img src={jamie} alt="jamie" className="rounded-full w-20 h-20 mb-2 " />
+                        <div className="ml-5">
+                            <h1 className="pt-3 "> Jamie Smith </h1>
+                            <p> avo.com</p>
+                        </div>
+                    </div>
+                    <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                        View Portfolio
+                    </button> 
+                </div>
+                <img src={spiral} alt="spiral" className="w-full h-96 mb-2 ml-36" />
+            </div>
+
+            {/*work portion ended*/}
+            </div>
+
+        {/* --------------------------------------------footer part start----------------- */}
+        <div className=" flex flex-row justify-evenly items-start bg-black pt-36 pb-36">
+          {/* avo */}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 text-white font-bold">AVO</h1>
+            <p className="text-white pt-14">Far far away, behind<br /> the word mountains,<br /> far from the countries. </p>
+          </div>
+          {/* community */}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Community</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Projects
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Teams
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Reviews
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              FAQs
+            </a>
+          </div>
+           {/* About Us*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">About Us</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Our Story
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Meet The Team
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Careers
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Blog
+            </a>
+          </div>
+          {/* Company*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Company</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              About Us
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Press
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Contact
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Careers
+            </a>
+          </div>
+          {/* Have a question*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Have a question</h1>
+            <p className=" text-white pb-5">203 Fake St.<br /> Mountain View,<br /> San Francisco,<br /> California, USA</p>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer pb-5">
+              +2 392 3929 210
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Info@yourdomain.com
+            </a>
+          </div>
+
+          
+        {/* --------------------------------------------footer part end----------------- */}
+        </div>
+
+        <div className="flex flex-row justify-center items-center bg-black pb-28">
+          <h1 className="text-white font-roboto">
+            Copyright ©2024 All rights reserved | This template is made by Abdullah Azhar
+          </h1>
+        </div>
+
+    </div>
+  );
+}
+
+export default Work;

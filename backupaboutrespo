@@ -1,0 +1,406 @@
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import bg1 from "../assets/bg_1.jpeg";
+import bg2 from "../assets/bg_2.jpeg";
+import design from "../assets/design.png";
+import web from "../assets/web.png";
+import mobile from "../assets/mobile.png";
+import seo from "../assets/seo.png";
+import computer from "../assets/computer.png";
+import aboutsection from "../assets/aboutsection.webp";
+import expert1 from "../assets/expert1.webp";
+import expert2 from "../assets/expert2.webp";
+import expert3 from "../assets/expert3.webp";
+import expert4 from "../assets/expert4.webp";
+import expert5 from "../assets/expert5.webp";
+import expert6 from "../assets/expert6.webp";
+import expert7 from "../assets/expert7.webp";
+import expert8 from "../assets/expert8.webp";
+import jamie from "../assets/jamie.webp";
+import charles from "../assets/charles.webp";
+import arthur from "../assets/arthur.webp";
+
+function About() {
+  const [backgroundIndex, setBackgroundIndex] = useState(0);
+
+  const backgrounds = [bg1, bg2];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setBackgroundIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
+    }, 4000);
+
+    return () => clearInterval(interval); // Cleanup interval on unmount
+  }, [backgrounds.length]);
+
+  const [startIndex, setStartIndex] = useState(0); // Define startIndex state
+
+  const clientsData = [
+    { name: 'Roger Scott', position: 'Marketing Manager', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: charles },
+    { name: 'Sarah Johnson', position: 'Software Engineer', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: arthur },
+    { name: 'John Doe', position: 'Product Manager', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: jamie },
+    { name: 'Sarah Johnson', position: 'Software Engineer', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: arthur },
+    { name: 'John Doe', position: 'Product Manager', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: charles},
+    { name: 'Sarah Johnson', position: 'Software Engineer', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: jamie },
+    { name: 'John Doe', position: 'Product Manager', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: charles },
+    { name: 'Sarah Johnson', position: 'Software Engineer', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: arthur },
+    { name: 'John Doe', position: 'Product Manager', quote: 'Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.', image: jamie },
+    // Add more cards as needed...
+  ];
+
+  const handleBubbleClick = (index) => {
+    setStartIndex(index);
+  };
+
+  // Function to get the next set of 3 clients to display
+  const currentClients = clientsData.slice(startIndex, startIndex + 3);
+
+  return (
+    <div>
+
+    <div
+      style={{
+        backgroundImage: `url(${backgrounds[backgroundIndex]})`,
+        backgroundSize: "auto 160%", // Image drops from the bottom
+        backgroundPosition: "center ",
+        backgroundRepeat: "no-repeat", // Adjust to start from the bottom center
+        width: "100%",
+        height: "100vh",
+        transition: "background-image 1s ease-in-out",
+      }}
+      className="flex justify-center items-center relative"
+    >
+      {/* Logo and Navigation Links */}
+        <div className="absolute top-4 left-4  w-full flex justify-between items-center px-44">
+            <div className="text-white text-2xl font-bold">
+            <h1>Avo</h1>
+            </div>
+            <nav className="text-white text-lg space-x-6">
+                {/* Use Link component for navigation */}
+                <Link to="/" className="hover:text-gray-300">Home</Link>
+                <Link to="/about" className="hover:text-gray-300">About</Link>
+                <Link to="/work" className="hover:text-gray-300">Work</Link>
+                <Link to="/blog" className="hover:text-gray-300">Blog</Link>
+                <Link to="/contact" className="hover:text-gray-300">Contact</Link>
+            </nav>
+        </div>
+
+        {/* Main Content */}
+        <div className="flex flex-col items-start absolute left-64">
+          <div className="flex flex-col text-white text-4xl font-bold  ">
+              <div className="text-gray-600 text-sm">
+                  <a href="/" className="hover:text-blue-500">Home</a>
+                  <span className="mx-2">&gt;</span>
+                  <span>About Us</span>
+              </div>
+              <h1 className="font-bold">About Us</h1>
+          </div>
+
+        </div>
+
+      </div>
+
+      {/* --------------------------------second portion started--------------------------------- */}
+      <div className="   px-24 flex flex-col items-center left-64 right-64 pt-12 pb-20">
+
+        <div className="pt-20">
+            <h1 className="text-4xl font-bold text-black pt-12">ABOUT US</h1>
+        </div>
+
+        <div className="flex flex-row justify-center items-center gap-8 py-24 mt-10">
+            {/* Icon 1 */}
+            <div className="flex flex-col items-center text-center">
+                <img src={design} alt="Design" className="w-20 h-20 mb-2" />
+                <h3 className="text-lg font-semibold">UI/UX Design</h3>
+            </div>
+
+            {/* Icon 2 */}
+            <div className="flex flex-col items-center text-center">
+                <img src={seo} alt="SEO" className="w-20 h-20 mb-2" />
+                <h3 className="text-lg font-semibold">SEO</h3>
+            </div>
+
+            {/* Icon 3 */}
+            <div className="flex flex-col items-center text-center">
+                <img src={web} alt="Web" className="w-20 h-20 mb-2" />
+                <h3 className="text-lg font-semibold">Web Development</h3>
+            </div>
+
+            {/* Icon 4 */}
+            <div className="flex flex-col items-center text-center">
+                <img src={mobile} alt="Mobile Apps" className="w-20 h-20 mb-2" />
+                <h3 className="text-lg font-semibold">Mobile Apps</h3>
+            </div>
+
+            {/* Icon 5 */}
+            <div className="flex flex-col items-center text-center">
+                <img src={computer} alt="IT Solutions" className="w-20 h-20 mb-2" />
+                <h3 className="text-lg font-semibold">Product Design</h3>
+            </div>
+        </div>
+
+        {/* div for the intro text */}
+        <div className="flex flex-row justify-center items-center gap-8 ">
+            <div className="flex flex-col  text-right">
+                
+                <h1 className="text-4xl font-bold">Welcome to AVO A<br /> Personal Porfolio<br /> Web Agency </h1>
+                <p className="text-lg">Separated they live in Bookmarksgrove<br /> right at the coast of the Semantics,
+                   a large<br /> language ocean. A small river named<br /> Duden flows by their place and supplies
+                   it<br /> with the necessary regelialia. It is a<br /> paradisematic country, in which roasted<br /> 
+                   parts of sentences fly into your mouth.</p>
+            </div>
+
+            <div>
+                <img src={aboutsection} alt="aboutsection" className="w-72 h-80 mb-2" />
+            </div>
+            <div className="flex flex-col items-start text-left">
+                <p className="text-lg">Far far away, behind the word mountains,<br /> far far from the countries Vokalia and<br /> Consonantia,
+                    there live the blind texts.<br /> Separated they live in Bookmarksgrove<br /> right at the coast of the
+                    Semantics, a large<br /> language ocean. A small river named<br /> Duden flows by their place and
+                    supplies it<br /> with the necessary regelialia. It is a<br /> paradisematic country, in which
+                    roasted<br /> parts of sentences fly into your mouth.
+                </p>
+                <a
+                    href="https://www.youtube.com/watch?v=VIDEO_ID"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                <button className=" bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+                    View all Projects
+                </button>
+                </a>
+            </div>  
+        </div>
+
+        {/* div for the services */}
+        <div className=" flex flex-row justify-center items-center gap-8 pt-10 ">
+            <div className="flex flex-row  text-left"> 
+                <div>
+                    <h1 className="text-5xl text-red-600 font-bold">01</h1>
+                    <p>________</p>
+                </div>
+                
+                <div className="flex flex-col">
+                    <h2 className="text-1xl font-bold"> Search Engine Optimization </h2>
+                    <p> Let your words be heard </p>
+                </div>
+            </div>
+            <div className="flex flex-row  text-left"> 
+                <div>
+                    <h1 className="text-5xl text-red-600 font-bold">02</h1>
+                    <p>________</p>
+                </div>
+                <div className="flex flex-col">
+                    <h2 className="text-1xl font-bold"> Search Engine Optimization </h2>
+                    <p> Let your words be heard </p>
+                </div>
+            </div>
+            <div className="flex flex-row  text-left"> 
+                <div>
+                    <h1 className="text-5xl text-red-600 font-bold">03</h1>
+                    <p>________</p>
+                </div>
+                <div className="flex flex-col">
+                    <h2 className="text-1xl font-bold"> Search Engine Optimization </h2>
+                    <p> Let your words be heard </p>
+                </div>
+            </div>
+        </div>
+
+      </div>
+      {/* div for servicing end */}
+      {/* photo div */}
+      <div className="w-full max-w-screen-lg mx-auto mb-40 rounded pl-10"
+          style={{
+            backgroundImage: `url(${bg1})`,
+            backgroundSize: "auto 160%", // Image drops from the bottom
+            backgroundPosition: "center ",
+            backgroundRepeat: "no-repeat", // Adjust to start from the bottom center
+            width: "120%",
+            height: "60vh",
+            transition: "background-image 1s ease-in-out",
+            rounded: "10px",
+          }}
+        >
+          <h1 className="text-2xl font-normal text-red-500 pt-16"> Get Started</h1>
+          <h2 className="text-4xl font-bold text-white pt-2 flex flex-col">Fill in the brief
+            and get the<br /> project estimate
+          </h2>
+          <p className="text-lg font-normal text-white pt-2">Far far away, behind the word mountains,
+             far from the<br /> countries Vokalia and Consonantia, there live the blind<br /> texts.</p>
+          <button className=" bg-slate-400 hover:bg-red-700 text-white font-bold py-2 px-4 pt-2 rounded">
+            Get Started
+          </button>
+          
+        </div>
+        {/* photo div end */}
+        {/* Expert team Section */}
+        <div className="flex flex-col justify-center items-center bg-slate-100">
+          <h1 className="text-4xl font-bold text-black pt-20 pb-10">OUR EXPERT TEAM</h1>
+          <div className="flex flex-row justify-center items-center pb-20">
+            <div>
+              <img src={expert1} alt="team" className="w-60 h-80 mb-2 " />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5">EMMA WATSON</h2>
+              <h3 className="text-red-500">Graphic Designer</h3> 
+            </div>
+            <div>
+              <img src={expert2} alt="team" className="w-60 h-80 mb-2 ml-6 mr-6" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5 pl-6">RICKY JONES</h2>
+              <h3 className=" pl-6 text-red-500">Web Developer</h3> 
+            </div>
+            <div>
+              <img src={expert3} alt="team" className="w-60 h-80 mb-2 mr-6" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5 ">MIKE SMITH</h2>
+              <h3 className="text-red-500">Web Designer</h3> 
+            </div>
+            <div>
+              <img src={expert4} alt="team" className="w-60 h-80 mb-2" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5">ROBERT WILLS</h2>
+              <h3 className="text-red-500">System Analyst</h3> 
+            </div>
+          </div>
+          {/* second row */}
+          <div className="flex flex-row justify-center items-center pb-20">
+            <div>
+              <img src={expert5} alt="team" className="w-60 h-80 mb-2 " />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5">MARY LINTON</h2>
+              <h3 className="text-red-500">Web Programmer</h3> 
+            </div>
+            <div>
+              <img src={expert6} alt="team" className="w-60 h-80 mb-2 ml-6 mr-6" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5 pl-6">SADIE ADLER</h2>
+              <h3 className="pl-6 text-red-500">SEO</h3> 
+            </div>
+            <div>
+              <img src={expert7} alt="team" className="w-60 h-80 mb-2 mr-6" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5 ">ZAYN MALIK</h2>
+              <h3 className="text-red-500">Software Engineer</h3> 
+            </div>
+            <div>
+              <img src={expert8} alt="team" className="w-60 h-80 mb-2" />
+              <h2 className="text-2xl font-bold text-black pt-10 pb-5">ABDULLAH AZHAR</h2>
+              <h3 className="text-red-500">Web Designer</h3> 
+            </div>
+          </div>
+
+
+        </div>
+        {/* Expert team Section end */}
+          {/* --------------------------------------------Client says part started----------------- */}
+      {/* Client Says Section */}
+      <div className="pt-28 flex flex-col justify-center items-center">
+        <div>
+          <h1 className="text-4xl font-bold pt-20">CLIENTS SAY ABOUT US?</h1>
+        </div>
+
+        <div className="flex justify-center space-x-4 pt-16 pb-10 ">
+          {currentClients.map((client, index) => (
+            <div key={index} className="card w-80 h-60 bg-gray-200 p-4 rounded-lg">
+              <div className="quote">"{client.quote}"</div>
+              <div className="client-info mt-4">
+                <img src={client.image} alt="client" className="w-12 h-12 rounded-full" />
+                <div className="client-name font-bold">{client.name}</div>
+                <div className="client-position text-sm">{client.position}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-4 flex justify-center space-x-2 pb-24 ">
+          {[0, 3, 6].map((index) => (
+            <div
+              key={index}
+              onClick={() => handleBubbleClick(index)}
+              className={`bubble w-4 h-4 rounded-full cursor-pointer ${startIndex === index ? 'bg-blue-500' : 'bg-gray-500'}`}
+            ></div>
+          ))}
+        </div>
+        
+        {/* Client Says Section End*/}
+      </div>
+      {/* --------------------------------------------Client says part ended----------------- */}
+
+      {/* --------------------------------------------footer part start----------------- */}
+      <div className=" flex flex-row justify-evenly items-start bg-black pt-36 pb-36">
+          {/* avo */}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 text-white font-bold">AVO</h1>
+            <p className="text-white pt-14">Far far away, behind<br /> the word mountains,<br /> far from the countries. </p>
+          </div>
+          {/* community */}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Community</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Projects
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Teams
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Reviews
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              FAQs
+            </a>
+          </div>
+           {/* About Us*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">About Us</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Our Story
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Meet The Team
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Careers
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Blog
+            </a>
+          </div>
+          {/* Company*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Company</h1>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              About Us
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Press
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Contact
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Careers
+            </a>
+          </div>
+          {/* Have a question*/}
+          <div className="flex flex-col items-start">
+            <h1 className="pt-8 pb-8 text-white font-bold">Have a question</h1>
+            <p className=" text-white pb-5">203 Fake St.<br /> Mountain View,<br /> San Francisco,<br /> California, USA</p>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer pb-5">
+              +2 392 3929 210
+            </a>
+            <a href="#" class="text-white hover:text-blue-700 cursor-pointer">
+              Info@yourdomain.com
+            </a>
+          </div>
+
+          
+        {/* --------------------------------------------footer part end----------------- */}
+        </div>
+
+        <div className="flex flex-row justify-center items-center bg-black pb-28">
+          <h1 className="text-white font-roboto">
+            Copyright ©2024 All rights reserved | This template is made by Abdullah Azhar
+          </h1>
+        </div>
+
+
+    {/* MAIN DIV END */}
+    </div>
+  );
+}
+
+export default About;
